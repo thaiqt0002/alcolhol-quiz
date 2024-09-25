@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@await Html.PartialAsync("Header/Header")
+<main class="flex flex-col gap-[3rem]">
+    @await Html.PartialAsync("Home/Intro")
+    @await Html.PartialAsync("Home/List")
+    @await Html.PartialAsync("Home/Quiz")
+    @await Html.PartialAsync("Home/About")
+</main>
+@await Html.PartialAsync("Footer/Footer")

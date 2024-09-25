@@ -1,0 +1,30 @@
+@{
+    var listItemModel = new List<Dotnet.Models.ListItemViewModel>
+{
+new Dotnet.Models.ListItemViewModel
+{
+Id = 1,
+Text = "Answer a few questions about the drinking habits of yourself or your loved one."
+},
+new Dotnet.Models.ListItemViewModel
+{
+Id = 2,
+Text = "Get clinical insight into how drinking habits impact health."
+},
+new Dotnet.Models.ListItemViewModel
+{
+Id = 3,
+Text = "Access personalized feedback and supportive tools"
+}
+};
+}
+
+<div class="flex flex-col items-center gap-5 xl:gap-12">
+    <h1 class="text-[1.5rem] xl:text-4xl">How it works</h1>
+    <div class="flex flex-col gap-7 xl:flex-row items-center justify-center w-full">
+        @foreach (var item in listItemModel)
+        {
+            @await Html.PartialAsync("Home/Components/ListItem", item)
+        }
+    </div>
+</div>

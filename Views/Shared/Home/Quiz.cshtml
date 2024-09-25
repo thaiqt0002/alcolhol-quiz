@@ -1,0 +1,19 @@
+@{
+    var Quiz = new Dotnet.Models.QuizButtonViewModel {
+        Type = "responsive",
+        ImageUrl = "/images/for_me.jpg",
+        Text = "Myself"
+    };
+    var Quiz2 = new Dotnet.Models.QuizButtonViewModel {
+        Type = "responsive",
+        ImageUrl = "/images/for_lo.jpg",
+        Text = "Someone i care about"
+    };
+}
+<div class="flex flex-col items-center justify-center text-center h-fit py-16 gap-20 bg-[#F6F7FB]">
+    <h1 class="font-semibold text-2xl">Are you answering these question for yourself or someone else?</h1>
+    <div class="flex flex-col gap-6 xl:flex-row">
+        @await Html.PartialAsync("Home/Components/QuizButton", Quiz)
+        @await Html.PartialAsync("Home/Components/QuizButton", Quiz2)
+    </div>
+</div>

@@ -1,0 +1,47 @@
+@model Dotnet.Models.QuizViewModel
+
+@{
+    ViewData["Title"] = "Quiz";
+}
+<div class="flex flex-col max-h-screen h-screen">
+    @await Html.PartialAsync("Header/Header")
+    <div class="flex justify-center h-full overflow-hidden">
+        <button onClick="navQuestion(-1)">Previous</button>
+        <div class="w-1/2">
+            @for (int i = 0; i < Model.Questions?.Count; i++)
+            {
+                <div id="question-@i" class="text-center max-h-screen justify-center items-center flex-col gap-8 pt-8 @(i==0 ? "flex" : "hidden")">
+                    <h1 class="text-3xl  font-semibold">@Html.Raw(Model.Questions[i].Question)</h1>
+                    @if (!string.IsNullOrEmpty(Model.Questions[i].Description)) {<p>@Html.Raw(Model.Questions[i].Description)</p>}
+                    <ul class="flex justify-center flex-col gap-4 items-center">
+                        @foreach (var answer in Model.Questions[i].Answers)
+                        {
+                            @await Html.PartialAsync("Home/Components/QuizButton", new Dotnet.Models.QuizButtonViewModel {            
+                                Text = answer.Option,
+                                Type = "column",
+                            })
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <button onClick="navQuestion(1)">Next</button>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        let currentQuestionIndex = 0
+        const totalQuestions = @Model.Questions?.Count ?? 0
+    
+        function navQuestion(direction) {
+            document.getElementById(`question-${currentQuestionIndex}`).classList.add('hidden');
+            document.getElementById(`question-${currentQuestionIndex}`).classList.remove('flex');
+            currentQuestionIndex += direction;
+            document.getElementById(`question-${currentQuestionIndex}`).classList.add('flex');
+            document.getElementById(`question-${currentQuestionIndex}`).classList.remove('hidden');
+
+            document.getElementById('prev-button').style.display = currentQuestionIndex > 0 ? 'inline' : 'none';
+            document.getElementById('next-button').style.display = currentQuestionIndex < totalQuestions - 1 ? 'inline' : 'none';
+        }
+    </script>
+}
