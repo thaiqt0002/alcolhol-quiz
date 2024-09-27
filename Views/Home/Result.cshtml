@@ -1,0 +1,19 @@
+@model Dotnet.Models.ResultViewModel
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+@await Html.PartialAsync("Header/Header")
+<h1>Quiz Result</h1>
+<canvas id="scoreChart" width="100" height="100"></canvas>
+<p id="totalScore"></p>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const totalScore = sessionStorage.getItem('totalScore');
+            document.getElementById('totalScore').innerText = totalScore;
+        });
+    </script>
+}

@@ -94,3 +94,4 @@ D:\Code\github\dotnet\obj\Debug\net9.0\ref\dotnet.dll
 D:\Code\github\dotnet\bin\Debug\net9.0\package-lock.json
 D:\Code\github\dotnet\bin\Debug\net9.0\package.json
 D:\Code\github\dotnet\obj\Debug\net9.0\compressed\v1x2agwyec-ai13e70z58.gz
+D:\Code\github\dotnet\obj\Debug\net9.0\dotnet.sourcelink.json

@@ -5,43 +5,88 @@
 }
 <div class="flex flex-col max-h-screen h-screen">
     @await Html.PartialAsync("Header/Header")
-    <div class="flex justify-center h-full overflow-hidden">
-        <button onClick="navQuestion(-1)">Previous</button>
-        <div class="w-1/2">
+    <div class="flex justify-center h-full overflow-hidden bg-gray-100">
+        <button id="prev-button" onClick="navQuestion(-1)" class='size-12 absolute z-10 left-[15%] top-[60%]'>
+            <i data-lucide="circle-arrow-left" class='w-full h-full hover:text-blue-400'></i>
+        </button>
+        <div class="w-1/2 h-full">
             @for (int i = 0; i < Model.Questions?.Count; i++)
             {
-                <div id="question-@i" class="text-center max-h-screen justify-center items-center flex-col gap-8 pt-8 @(i==0 ? "flex" : "hidden")">
-                    <h1 class="text-3xl  font-semibold">@Html.Raw(Model.Questions[i].Question)</h1>
-                    @if (!string.IsNullOrEmpty(Model.Questions[i].Description)) {<p>@Html.Raw(Model.Questions[i].Description)</p>}
-                    <ul class="flex justify-center flex-col gap-4 items-center">
+                <div id="question-@i"
+                    class="text-center max-h-screen justify-center items-center flex-col gap-8 pt-8 h-full @(i==0 ? "flex" : "hidden")">
+                    <div class="">
+                        <div class="sm:text-2xl xl:text-3xl font-semibold">@Html.Raw(Model.Questions[i].Question)</div>
+                        @if (!string.IsNullOrEmpty(Model.Questions[i].Description))
+                        {
+                            <p>@Html.Raw(Model.Questions[i].Description)</p>
+                        }
+                    </div>
+                    <div id="answer-@i" class="grid gap-4 h-2/3 w-full">
                         @foreach (var answer in Model.Questions[i].Answers)
                         {
-                            @await Html.PartialAsync("Home/Components/QuizButton", new Dotnet.Models.QuizButtonViewModel {            
+                            var quizButtonProps = new Dotnet.Models.QuizButtonViewModel
+                            {
                                 Text = answer.Option,
+                                ImageUrl = !string.IsNullOrEmpty(answer.Image) ? answer.Image : null,
                                 Type = "column",
-                            })
+                                OnClick = $"selectAnswer({answer.Score})"
+                            };
+                            if (!string.IsNullOrEmpty(answer.Image))
+                            {
+                                quizButtonProps.ImageUrl = answer.Image;
+                            }
+                            @await Html.PartialAsync("Home/Components/QuizButton", quizButtonProps)
                         }
-                    </ul>
+                    </div>
                 </div>
             }
         </div>
-        <button onClick="navQuestion(1)">Next</button>
     </div>
 </div>
 @section Scripts {
     <script>
+
         let currentQuestionIndex = 0
         const totalQuestions = @Model.Questions?.Count ?? 0
-    
+        let totalScore = 10
+        const selectedAnswers = new Array(totalQuestions).fill(null)
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const questions = @Model.Questions?.Count ?? 0;
+            for (let i = 0; i < questions; i++) {
+                const answersContainer = document.getElementById(`answer-${i}`);
+                const answersCount = answersContainer.children.length;
+                console.log(answersCount);
+                if (answersCount < 5) {
+                    answersContainer.classList.add('grid-rows-flow');
+                } else {
+                    answersContainer.classList.add('grid-cols-3');
+                }
+            }
+        });
+        function selectAnswer(score) {
+            selectedAnswers[currentQuestionIndex] = score
+            totalScore += score;
+            navQuestion(1);
+        }
         function navQuestion(direction) {
             document.getElementById(`question-${currentQuestionIndex}`).classList.add('hidden');
             document.getElementById(`question-${currentQuestionIndex}`).classList.remove('flex');
             currentQuestionIndex += direction;
+            if (currentQuestionIndex >= totalQuestions || totalScore < 0) {
+                sessionStorage.setItem('totalScore',totalScore)
+                window.location.href = '@Url.Action("Result", "Home")';
+                return;
+            }
+            if (direction === -1 && selectedAnswers[currentQuestionIndex] !== null) {
+                totalScore -= selectedAnswers[currentQuestionIndex];
+                selectedAnswers[currentQuestionIndex] = null;
+            }
             document.getElementById(`question-${currentQuestionIndex}`).classList.add('flex');
             document.getElementById(`question-${currentQuestionIndex}`).classList.remove('hidden');
-
-            document.getElementById('prev-button').style.display = currentQuestionIndex > 0 ? 'inline' : 'none';
-            document.getElementById('next-button').style.display = currentQuestionIndex < totalQuestions - 1 ? 'inline' : 'none';
+            document.getElementById('prev-button').classList.toggle('hidden', currentQuestionIndex == 0);
         }
+        document.getElementById('prev-button').classList.toggle('hidden', currentQuestionIndex == 0);
+
     </script>
 }

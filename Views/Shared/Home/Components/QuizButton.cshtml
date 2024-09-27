@@ -1,10 +1,7 @@
 @model Dotnet.Models.QuizButtonViewModel
 
 
-<button class="bg-white flex items-center py-1 px-3 shadow-[0.1rem_0.1rem_0.75rem] shadow-gray-300 w-80 rounded-2xl border-2 border-white hover:border-[#1D3D6E] transition justify-center gap-2 @Model.Class
-    @(Model.Type == "responsive" ? "h-60 justify-center" : "") 
-    @(Model.Type != "column" ? "flex-col" : "flex-row")">
-        <img src="@Model.ImageUrl" class="h-14 
-            @(Model.Type == "responsive" ? "xl:h-32" : "")" />
+<button class="bg-white flex items-center py-1 px-3 shadow-[0.1rem_0.1rem_0.75rem] shadow-gray-300 rounded-2xl border-2 border-white hover:border-[#1D3D6E] transition justify-center gap-2 @Model.Class" onClick="@Model.OnClick">
+        <img src="@Model.ImageUrl" class="h-14" />
         <div class="text-lg text-[#2F2F2F]">@Model.Text</div>
 </button>
