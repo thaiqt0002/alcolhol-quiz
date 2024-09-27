@@ -1,0 +1,12 @@
+@model int
+
+@if (Model < 0)
+{
+    <p class="resultTitle h-fit w-fit">Cảnh báo dưới 18 tuổi</p>
+    <div class="description">Your score is below zero.</div>
+}
+else
+{
+    <div class="resultTitle">Quiz Result</div>
+    <div class="description">Your score is positive.</div>
+}

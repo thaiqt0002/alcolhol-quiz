@@ -55,13 +55,17 @@ namespace Dotnet.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Result(int score)
+        public IActionResult Result()
         {
-            var viewModel = new ResultViewModel {
-                TotalScore = score
-            };
-            return View(viewModel);
+            return View();
         }
+        
+        [HttpGet]
+        public IActionResult RenderResultComponent(int score)
+        {
+            return PartialView("~/Views/Shared/Home/Components/ResultComponent.cshtml", score);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
