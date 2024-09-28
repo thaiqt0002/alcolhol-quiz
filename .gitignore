@@ -1,1 +1,17 @@
-node_modules
+# Thư mục build
+obj/
+bin/
+
+# Cấu hình người dùng
+.vscode/
+
+# Tệp tạm thời
+*.tmp
+*.log
+
+# Tệp cấu hình hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Tệp lock của NuGet
+project.lock.json
