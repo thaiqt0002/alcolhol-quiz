@@ -1,12 +1,25 @@
 @model int
 
+@*  Nếu chọn <18 tuổi thì score sẽ bị âm
+    Total score < 4: Low
+    Total score = 4: Mid
+    Total score > 4: High
+ *@
 @if (Model < 0)
 {
     <p class="resultTitle h-fit w-fit">Cảnh báo dưới 18 tuổi</p>
     <div class="description">Your score is below zero.</div>
 }
-else
-{
+else if (Model < 4) {
     <div class="resultTitle">Quiz Result</div>
     <div class="description">Your score is positive.</div>
 }
+else if (Model == 4) {
+    <div class="resultTitle">Quiz Result</div>
+    <div class="description">Your score is above average.</div>
+}
+else {
+    <div class="resultTitle">Quiz Result</div>
+    <div class="description">Your score is excellent.</div>
+}
+

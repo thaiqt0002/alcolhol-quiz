@@ -48,7 +48,7 @@
 
         let currentQuestionIndex = 0
         const totalQuestions = @Model.Questions?.Count ?? 0
-        let totalScore = 10
+        let totalScore = 0
         const selectedAnswers = new Array(totalQuestions).fill(null)
 
         document.addEventListener("DOMContentLoaded", function () {
