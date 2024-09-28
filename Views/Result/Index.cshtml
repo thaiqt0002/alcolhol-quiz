@@ -11,7 +11,7 @@
             const totalScore = sessionStorage.getItem('totalScore');
 
             if (totalScore !== null) {
-                fetch('@Url.Action("RenderResultComponent", "Home")?score=' + totalScore)
+                fetch('@Url.Action("RenderResultComponent", "Result")?score=' + totalScore)
                     .then(response => response.text())
                     .then(html => {
                         document.getElementById('resultContainer').innerHTML = html;

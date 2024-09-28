@@ -1,0 +1,24 @@
+@model int
+
+@* Nếu chọn <18 tuổi thì score sẽ bị âm
+Total score < 4: Low
+Total score = 4: Mid
+Total score > 4: High
+*@
+@if (Model < 0)
+{
+    @await Html.PartialAsync("Result/ResultUnderAge")
+}
+else if (Model < 4)
+{
+
+    @await Html.PartialAsync("Result/ResultLow")
+}
+else if (Model == 4)
+{
+    @await Html.PartialAsync("Result/ResultMid")
+}
+else
+{
+    @await Html.PartialAsync("Result/ResultHigh")
+}

@@ -53,17 +53,8 @@ namespace Dotnet.Controllers
             };
             return View(viewModel);
         }
-
-        public IActionResult Result()
-        {
-            return View();
-        }
         
-        [HttpGet]
-        public IActionResult RenderResultComponent(int score)
-        {
-            return PartialView("~/Views/Shared/Home/Components/ResultComponent.cshtml", score);
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 

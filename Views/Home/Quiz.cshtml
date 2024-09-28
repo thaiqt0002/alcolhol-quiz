@@ -75,7 +75,7 @@
             currentQuestionIndex += direction;
             if (currentQuestionIndex >= totalQuestions || totalScore < 0) {
                 sessionStorage.setItem('totalScore',totalScore)
-                window.location.href = '@Url.Action("Result", "Home")';
+                window.location.href = '@Url.Action("Index", "Result")';
                 return;
             }
             if (direction === -1 && selectedAnswers[currentQuestionIndex] !== null) {
