@@ -2,5 +2,5 @@
 
 <div class="flex flex-col gap-4 p-8 @Model.Class">
     <h2 class="text-[#1D3D6E] text-3xl font-bold">@Model.OverviewTitle</h2>
-    <p class="text-xl">@Model.Text</p>
+    <p class="text-xl">@Html.Raw(Model.Text)</p>
 </div>
