@@ -1,35 +1,28 @@
-<h1 class="resultTitle h-fit w-fit">Low</h1>
-    <div class="description">
-        <div class="">
-            <h2>Tổng quan</h2>
-            <p>Tin tuyệt vời! Bạn đang uống rượu trong giới hạn an toàn và bạn tránh uống rượu say.
-                Theo các nghiên cứu, lá gan của một người bình thường khỏe mạnh có thể lọc được khoảng từ 300ml - 400ml bia
-                mỗi ngày:
-                > Khuyến cáo nữ giới chỉ nên uống không quá 330ml bia, tương đương 1 lon bia mỗi ngày
-                >Nam giới thì chỉ nên uống không quá 660ml bia, tức khoảng 2 lon bia mỗi ngày. => Song điều đáng lưu ý là
-                một tuần không nên uống quá 5 ngày.
-                ( https://tuoitre.vn/video/uong-bia-dung-cach-de-tot-cho-suc-khoe-152327.htm )
-            </p>
-        </div>
-        <div class="">
-            <h2>Phân tích tình trạng hiện tại</h2>
-            <p>Việc bạn uống bia rượu đúng cách và trong mức an toàn sẽ mang lại nhiều lợi ích cho bản thân và tốt cho sức
-                khoẻ: cải thiện tiêu hoá, đẹp da, hỗ trợ tim mạch, giúp giảm căng thẳng ngủ ngon hơn
-                Điều này khiến bạn có ít nguy cơ phát triển các vấn đề về sức khỏe thể chất và tinh thần hơn so với những
-                người uống nhiều rượu hơn.
-                Xin lưu ý, rủi ro thấp không có nghĩa là không có rủi ro vì ngay cả một ly rượu, bia mỗi đêm cũng có thể làm
-                gián đoạn giấc ngủ và ảnh hưởng đến sức khỏe của bạn, vì vậy hãy chú ý đến việc uống rượu của bạn và nó ảnh
-                hưởng đến cơ thể bạn như thế nào.
-            </p>
-        </div>
-        <div class="">
-            <h2>Giới hạn uống an toàn</h2>
-            <p>Đối với những người mắc một số bệnh trạng nhất định, có triệu chứng của một số bệnh trạng nhất định hoặc đang
-                dùng các loại thuốc cụ thể, bất kỳ việc uống rượu, bia nào cũng có thể gây nguy hiểm cho sức khỏe của bạn,
-                vì vậy hãy nói chuyện với bác sĩ để đảm bảo.
-                Một người bình thường không nên uống quá 1 đơn vị rượu/ngày (1 đơn vị rượu chứa 10g cồn), tương đương: 30ml
-                rượu mạnh (40-43 độ); 100ml rượu vang (13,5 độ); 330ml bia hơi (5 độ); 2/3 chai 500ml hoặc lon bia 330ml (5
-                độ).
-            </p>
-        </div>
-    </div>
+@{
+    var Part1 = new Dotnet.Models.ResultOverviewViewModel
+            {
+                Class = "",
+                OverviewTitle = "Tổng quan",
+                Text = @"Tin tuyệt vời! Bạn đang uống rượu trong giới hạn an toàn và bạn tránh uống rượu say. Theo các nghiên cứu, lá gan của một người bình thường khỏe mạnh có thể lọc được khoảng từ 300ml - 400ml bia mỗi ngày: > Khuyến cáo nữ giới chỉ nên uống không quá 330ml bia, tương đương 1 lon bia mỗi ngày >Nam giới thì chỉ nên uống không quá 660ml bia, tức khoảng 2 lon bia mỗi ngày. => Song điều đáng lưu ý làmột tuần không nên uống quá 5 ngày. (https://tuoitre.vn/video/uong-bia-dung-cach-de-tot-cho-suc-khoe-152327.htm )"
+            };
+    var Part2 = new Dotnet.Models.ResultOverviewViewModel
+            {
+                Class = "bg-[#F5F7FB]",
+                OverviewTitle = "Phân tích tình trạng hiện tại ",
+                Text = @"Việc bạn uống bia rượu đúng cách và trong mức an toàn sẽ mang lại nhiều lợi ích cho bản thân và tốt cho sức khoẻ: cải thiện tiêu hoá, đẹp da, hỗ trợ tim mạch, giúp giảm căng thẳng ngủ ngon hơn Điều này khiến bạn có ít nguy cơ phát triển các vấn đề về sức khỏe thể chất và tinh thần hơn so với những người uống nhiều rượu hơn.Xin lưu ý, rủi ro thấp không có nghĩa là không có rủi ro vì ngay cả một ly rượu, bia mỗi đêm cũng có thể làm gián đoạn giấc ngủ và ảnh hưởng đến sức khỏe của bạn, vì vậy hãy chú ý đến việc uống rượu của bạn và nó ảnh hưởng đến cơ thể bạn như thế nào."
+            };
+    var Part3 = new Dotnet.Models.ResultOverviewViewModel
+            {
+                Class = "",
+                OverviewTitle = "Phân tích tình trạng hiện tại ",
+                Text = @"Đối với những người mắc một số bệnh trạng nhất định, có triệu chứng của một số bệnh trạng nhất định hoặc đang dùng các loại thuốc cụ thể, bất kỳ việc uống rượu, bia nào cũng có thể gây nguy hiểm cho sức khỏe của bạn, vì vậy hãy nói chuyện với bác sĩ để đảm bảo. Một người bình thường không nên uống quá 1 đơn vị rượu/ngày (1 đơn vị rượu chứa 10g cồn), tương đương: 30ml rượu mạnh (40-43 độ); 100ml rượu vang (13,5 độ); 330ml bia hơi (5 độ); 2/3 chai 500ml hoặc lon bia 330ml (5độ)."
+            };
+
+}
+
+<div class="flex flex-col gap-8">
+    @await Html.PartialAsync("Result/Components/ResultTitle", "Low")
+    @await Html.PartialAsync("Result/Components/ResultOverview", Part1)
+    @await Html.PartialAsync("Result/Components/ResultOverview", Part2)
+    @await Html.PartialAsync("Result/Components/ResultOverview", Part3)
+</div>

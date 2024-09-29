@@ -1,14 +1,17 @@
 <header class="flex justify-between sticky top-0 h-24 px-16  bg-white">
     <div class="flex gap-4 items-center text-xl text-[#0000008c]">
-        <a href="@Url.Action("Index","Home")"><img src="~/images/logo.png" alt="logo" /></a>
-        <div class="gap-4 h-full hidden xl:flex">
-            <a href="@Url.Action("Quiz","Home")"><div class="select-none hover:underline h-full flex items-center">Take the quiz</div></a>
-            <div class="select-none hover:underline h-full flex items-center">Resources</div>
-            <div class="select-none hover:underline h-full flex items-center">About us</div>
+        <a href="@Url.Action("Index","Home")"><img src="~/images/logo.jpg" alt="logo" class="size-24" /></a>
+        <div class="gap-4 h-full flex">
+            <a href="@Url.Action("Index","Quiz")">
+                <div class="select-none hover:underline h-full flex items-center">Làm quiz</div>
+            </a>
+            <a href="@Url.Action("Index","Tips")">
+                <div class="select-none hover:underline h-full flex items-center">Lời khuyên</div>
+            </a>
         </div>
     </div>
-    <div class="flex xl:hidden h-full w-fit justify-center items-center">
+    @* <div class="flex xl:hidden h-full w-fit justify-center items-center">
         <button class="w-fit h-fit border rounded-md hover:bg-gray-200">
             <i data-lucide="align-justify" class="size-8 m-2"></i></button>
-    </div>
+    </div> *@
 </header>

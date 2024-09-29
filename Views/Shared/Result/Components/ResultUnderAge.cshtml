@@ -1,0 +1,38 @@
+@{
+    var Part1 = new Dotnet.Models.ResultOverviewViewModel
+            {
+                Class = "",
+                OverviewTitle = "Tổng quan",
+                Text = @"Xin cảm ơn bạn đã thực hiện web của chúng tôi. Nhưng rất tiếc bạn chưa đủ 18tuổi để sử dụng bia hay bất kì loại nước uống có cồn trên thị trường hiện tại. Bởi vì quy định pháp luật đề ra trên 18 tuổi mới được sử dụng bí rượu. Nếu các bạn sử dụng dưới độ tuổi này là các bạn vừa đang vi phạm pháp luật và song với điều đó là ảnh hưởng
+                tới sức khoẻ của riêng bản thân bạn. )"
+            };
+    var Part2 = new Dotnet.Models.ResultOverviewViewModel
+            {
+                Class = "bg-[#F5F7FB]",
+                OverviewTitle = "Phân tích tình trạng hiện tại ",
+                Text = @"Thanh thiếu niên/vị thành niên là một giai đoạn chuyển tiếp từ trẻ em sang người trưởng thành, đang phát
+                triển về thể chất, tinh thần. Các hóc-môn dậy thì của giai đoạn này kích hoạt các vùng đảm nhiệm chức năng
+                cảm xúc, xã hội của bộ não đang phát triển, thúc đẩy hành vi của người trẻ tuổi...
+                Các bằng chứng khoa học cũng cho thấy rượu, bia tác động ở cấp phân tử và cấp tế bào đến quá trình hình
+                thành và phát triển của não, có thể dẫn đến thay đổi cấu trúc của đồi hải mã, là vùng não có vai trò quan
+                trọng cho quá trình học tập, làm giảm trí nhớ, giảm khả năng tập trung của não bộ…"
+            };
+    var Part3 = new Dotnet.Models.ResultOverviewViewModel
+            {
+                Class = "",
+                OverviewTitle = "Giới hạn uống an toàn",
+                Text = @"Như vậy về hậu quả trước mắt, uống rượu, bia gây ra các hành vi nguy cơ ở thanh thiếu niên như say rượu dẫn đến ngộ độc rượu, có hành vi bạo lực, quan hệ tình dục không an toàn, tai nạn, chấn thương khi điều khiển phương tiện giao thông, ... Còn về lâu dài thì uống rượu, bia sẽ gây lệ thuộc, mắc các bệnh mạn tính và gây ảnh hưởng đến cả phát triển thể chất và tinh thần khi trưởng thành. Hãy sử dụng bia rượu khi đủ tuổi nhé!"
+            };
+
+}
+
+<div class="flex flex-col gap-8">
+    @await Html.PartialAsync("Result/Components/ResultTitle", "Cảnh báo dưới 18 tuổi")
+    @await Html.PartialAsync("Result/Components/ResultOverview", Part1)
+    @await Html.PartialAsync("Result/Components/ResultOverview", Part2)
+    @await Html.PartialAsync("Result/Components/ResultOverview", Part3)
+</div>
+
+
+
+

@@ -1,7 +1,4 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using dotnet.Models;
-using Dotnet.Models;
 
 namespace Dotnet.Controllers
 {

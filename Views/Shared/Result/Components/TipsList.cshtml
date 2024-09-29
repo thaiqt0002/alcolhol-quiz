@@ -1,0 +1,19 @@
+@{
+    var ButtontipsList = new List<Dotnet.Models.QuizButtonViewModel>
+    {
+        new Dotnet.Models.QuizButtonViewModel { Text = "Tip 1", Link = "", Prelink = "Tips"  },
+        new Dotnet.Models.QuizButtonViewModel { Text = "Tip 2" }
+    };
+}
+
+<div class="flex flex-col gap-4 p-8">
+    <h2 class="text-[#1D3D6E] text-3xl font-bold"></h2>
+    <div class="flex flex-col w-full justify-center">
+        @foreach (var item in ButtontipsList)
+        {
+            <div class="flex justify-center">
+                @await Html.PartialAsync("Quiz/Components/QuizButton", item)
+            </div>
+        }
+    </div>
+</div>    using Dotnet.Models;
