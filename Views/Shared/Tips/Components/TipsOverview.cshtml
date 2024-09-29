@@ -1,0 +1,6 @@
+@model Dotnet.Models.TipsCardViewModel
+
+<div class="flex flex-col gap-4 p-8 @Model.Class">
+    @if (!string.IsNullOrEmpty(@Model.OverviewTitle)) {<h2 class="text-[#1D3D6E] text-3xl font-bold">@Model.OverviewTitle</h2>}
+    <p class="text-xl">@Html.Raw(Model.Text)</p>
+</div>

@@ -8,5 +8,21 @@ namespace Dotnet.Controllers
         {
             return View();
         }
+
+        public IActionResult Diet() {
+            return View();
+        }
+
+        public IActionResult Exercise() {
+            return View();
+        }
+
+        public IActionResult Medicine() {
+            return View();
+        }
+
+        public IActionResult Symptom() {
+            return View();
+        }
     }
 }
